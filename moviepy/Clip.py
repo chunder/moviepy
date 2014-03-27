@@ -4,6 +4,7 @@ all the methods that are common to the two subclasses of Clip, VideoClip
 and AudioClip.
 """
 
+import os
 from copy import copy
 import numpy as np
 
@@ -41,7 +42,8 @@ class Clip:
     # You can overwrite it with
     # >>> Clip._TEMP_FILES_PREFIX = "temp_"
 
-    _TEMP_FILES_PREFIX = 'TEMP_MPY_'
+    # include pid so that multiple processes don't use the same temp files
+    _TEMP_FILES_PREFIX = 'TEMP_MPY_%d_' % os.getpid()
 
     def __init__(self):
 
