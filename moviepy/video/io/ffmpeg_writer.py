@@ -64,8 +64,8 @@ class FFMPEG_VideoWriter:
             '-pix_fmt', "rgba" if withmask else "rgb24",
             '-r', "%.02f"%fps,
             '-i', '-', '-an',
-            '-preset', 'fast',
-            '-crf', '29',
+            #'-preset', 'fast',
+            #'-crf', '29',
             '-vcodec', codec]
             + (['-b',bitrate] if (bitrate!=None) else [])
 
